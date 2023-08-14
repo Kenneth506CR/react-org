@@ -1,7 +1,9 @@
+import "./CampoTexto.css"
 
-const CampoTexto = () => {
-    return <div>
-        CampoTexto
+const CampoTexto = (datosExternos) => {
+    return <div className="campo-texto">
+        <label>Nombre</label>
+        <input placeholder="Ingresar Nombre"/>
     </div>
 }
 
