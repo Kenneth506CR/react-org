@@ -1,24 +1,52 @@
+import { useState } from "react";
 import "./Formulario.css";
 import CampoTexto from "../CampoTexto/CampoTexto.js";
 import ListaOpciones from "../ListaOpciones/ListaOpciones.js";
 import Boton from "../Boton/boton";
 
 const Formulario = () => {
+  const [nombre, setNombre] = useState("");
+  const [puesto, setPuesto] = useState("");
+  const [foto, setFoto] = useState("");
+  const [equipo, setEquipo] = useState("");
 
-  const manejarEnvio = (event) => {
-    event.preventDefault();
-    console.log("Formulario enviado")
-  }
-
+  const manejarEnvio = (e) => {
+    e.preventDefault();
+    console.log("Formulario enviado");
+    let datosEnviar = {
+      nombre,
+      puesto,
+      foto,
+    };
+    console.log(datosEnviar);
+  };
 
   return (
     <section className="formulario">
       <form onSubmit={manejarEnvio}>
         <h2>Rellena el formulario para crear el colaborador.</h2>
-        <CampoTexto titulo="Nombre" placeholder="Ingresar Nombre" required/>
-        <CampoTexto titulo="Puesto" placeholder="Ingresar Puesto" required/>
-        <CampoTexto titulo="Foto" placeholder="Ingresar enlace de foto" required/>
-        <ListaOpciones/>
+        <CampoTexto
+          titulo="Nombre"
+          placeholder="Ingresar Nombre"
+          required
+          valor={nombre}
+          actualizarValor={setNombre}
+        />
+        <CampoTexto
+          titulo="Puesto"
+          placeholder="Ingresar Puesto"
+          required
+          valor={puesto}
+          actualizarValor={setPuesto}
+        />
+        <CampoTexto
+          titulo="Foto"
+          placeholder="Ingresar enlace de foto"
+          required
+          valor={foto}
+          actualizarValor={setFoto}
+        />
+        <ListaOpciones valor={equipo} setEquipo={setEquipo} />
         <Boton texto="Crear" />
       </form>
     </section>

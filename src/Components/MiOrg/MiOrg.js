@@ -1,10 +1,23 @@
-import "./MiOrg.css"
+import { useState } from "react";
+import "./MiOrg.css";
 
-const MiOrg = () => {
-    return <section className="org-section">
-        <h3 className="title">Mi Organización</h3>
-        <img src="/IMG/boton.png" alt="add"/>
+const MiOrg = (props) => {
+  //Estado - hooks
+  //useState
+  //const [nombreVariable, funcionActualizada] = useState(valorInicial)
+  /*   const [mostrar, actualizarMostar] = useState(true)
+  const manejarClick = () => {
+    console.log("Mostrar/Ocultar elemento");
+  }; */
+
+  console.log(props);
+
+  return (
+    <section className="org-section">
+      <h3 className="title">Mi Organización</h3>
+      <img src="/img/boton.png" alt="add" onClick={props.cambiarMostrar} />
     </section>
-}
+  );
+};
 
-export default MiOrg
+export default MiOrg;
