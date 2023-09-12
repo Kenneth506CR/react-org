@@ -12,13 +12,14 @@ const Formulario = (props) => {
 
   const manejarEnvio = (e) => {
     e.preventDefault();
-    console.log("Formulario enviado");
+
     let datosEnviar = {
-      nombre,
-      puesto,
-      foto,
+      nombre: nombre,
+      puesto: puesto,
+      foto: foto,
+      equipo: equipo,
     };
-    console.log(datosEnviar);
+    props.registrarColaborador(datosEnviar);
   };
 
   return (

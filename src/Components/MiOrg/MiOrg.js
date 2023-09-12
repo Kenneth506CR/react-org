@@ -5,10 +5,7 @@ const MiOrg = (props) => {
   //Estado - hooks
   //useState
   //const [nombreVariable, funcionActualizada] = useState(valorInicial)
-  /*   const [mostrar, actualizarMostar] = useState(true)
-  const manejarClick = () => {
-    console.log("Mostrar/Ocultar elemento");
-  }; */
+  //   const [mostrar, actualizarMostar] = useState(true)
 
   console.log(props);
 
