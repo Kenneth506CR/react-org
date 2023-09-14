@@ -1,7 +1,7 @@
 .org-section {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -11,10 +11,9 @@
   font-weight: 400;
   padding-bottom: 24px;
   border-bottom: 4px solid #6278f7;
+  text-align: center;
 }
 
 .org-section img {
-  position: absolute;
-  right: 30%;
   cursor: pointer;
 }

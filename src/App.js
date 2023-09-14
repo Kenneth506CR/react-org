@@ -4,24 +4,24 @@ import Header from "./Components/Header/Header.js";
 import Formulario from "./Components/Formulario/Formulario.js";
 import MiOrg from "./Components/MiOrg/MiOrg";
 import Equipo from "./Components/Equipo/Equipo";
+import Footer from "./Components/Footer/Footer.jsx";
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(false);
-  const [colaboradores, actualizarColaboradores] = useState([])
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [colaboradores, setColaboradores] = useState([{nombre: 'Kenneth Rodríguez Carvajal', puesto: 'Pasante', foto: 'https://github.com/Kenneth506CR.png', equipo: 'Front End'}]);
 
   //Ternario --> condicion ? si es verdadera se muestra: es falsa no se muestra
   //Corto circuito --> codicion && seMuestra
 
   const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarFormulario);
+    setMostrarFormulario(!mostrarFormulario);
   };
 
   //Registrar colaborador
-
   const registrarColaborador = (colaborador) => {
-    console.log("Nuevo Colaborador", colaborador)
-    actualizarColaboradores([...colaboradores, colaboradores])
-  }
+    console.log("Nuevo Colaborador", colaborador);
+    setColaboradores([...colaboradores, colaborador]);
+  };
 
   //Lista de equipos
   const equipos = [
@@ -67,14 +67,25 @@ function App() {
       <Header />
       {/*{mostrarFormulario === true ? <Formulario /> : <></>} */}
       {mostrarFormulario && (
-        <Formulario equipos={equipos.map((equipo) => equipo.titulo)}
-        registrarColaborador={registrarColaborador} />
+        <Formulario
+          equipos={equipos.map((equipo) => equipo.titulo)}
+          registrarColaborador={registrarColaborador}
+        />
       )}
+
       <MiOrg cambiarMostrar={cambiarMostrar} />
+
       {equipos.map((equipo) => (
-        <Equipo datos={equipo} key={equipo.titulo}
-        colaboradores={colaboradores} />
+        <Equipo
+          datos={equipo}
+          key={equipo.titulo}
+          colaboradores={colaboradores.filter(
+            (colaborador) => colaborador.equipo === equipo.titulo
+          )}
+        />
       ))}
+
+      <Footer />
     </div>
   );
 }
